@@ -1,0 +1,58 @@
+import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
+import Container from '@mui/material/Container'
+import Link from '@mui/material/Link'
+import { Divider } from '@mui/material'
+import { NavLink } from './Nav'
+
+const Copyright = () => (
+  <Typography variant="body1" color="text.secondary" py={4}>
+    Copyright &copy;
+    {new Date().getFullYear()}{' '}
+    <Link color="inherit" href="/">
+      Ethio Open Source Community
+    </Link>{' '}
+    . All right reserved
+  </Typography>
+)
+
+const Footer = () => {
+  return (
+    <Box
+      component="footer"
+      sx={{
+        py: 3,
+        px: 2,
+        mt: 'auto',
+        backgroundColor: (theme) =>
+          theme.palette.mode === 'light'
+            ? theme.palette.grey[200]
+            : theme.palette.grey[800],
+      }}
+    >
+      <Container>
+        <Box
+          sx={{
+            py: 2,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: 2,
+          }}
+        >
+          <Typography variant="h6">Logo</Typography>
+          <Box>
+            <NavLink href="/about">About Us</NavLink>
+            <NavLink href="/project">Projects</NavLink>
+            <NavLink href="/resources">Resources</NavLink>
+            <NavLink href="/news">News</NavLink>
+          </Box>
+        </Box>
+        <Divider />
+        <Copyright />
+      </Container>
+    </Box>
+  )
+}
+
+export default Footer
