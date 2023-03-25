@@ -24,8 +24,8 @@ export const tokens = (mode) =>({
         },
             
         neutral:{
-            white:'#FFFF',
-            darkBlue:'0F172A',
+            400:'#FFFF',
+            700:'#0F172A',
         
         }
 
@@ -49,8 +49,8 @@ export const tokens = (mode) =>({
         
         },
         neutral:{
-            white:'#FFFF',
-            darkBlue:'0F172A',
+            400:'#FFFF',
+            700:'#0F172A',
         
         }
 
@@ -74,8 +74,8 @@ export const themeSettings = (mode) =>{
                     main: colors.secondary[600]
                 },
                 neutral:{
-                    main: colors.neutral[white],
-                    dark: colors.neutral[darkBlue]
+                    main: colors.neutral[400],
+                    dark: colors.neutral[700]
                 },
                 background:{
                     default: colors.primary[600]
@@ -88,8 +88,8 @@ export const themeSettings = (mode) =>{
                     main: colors.secondary[600]
                 },
                 neutral:{
-                    main: colors.neutral[darkBlue],
-                    dark: colors.neutral[white]
+                    main: colors.neutral[700],
+                    dark: colors.neutral[400]
                 },
                 background:{
                     default: colors.primary[600]
@@ -99,23 +99,23 @@ export const themeSettings = (mode) =>{
             typography:{
                 fontFamily:['Work Sans','Lexend'].join(","),
                 fontSize: 13,
-                Header1:{
+                h1:{
                     fontFamily:['Work Sans'].join(","),
                     fontSize: 34,
                 },
-                Header2:{
+                h2:{
                     fontFamily:['Work Sans'].join(","),
                     fontSize: 20,
                 },
-                Body:{
+                h3:{
                     fontFamily:['Work Sans'].join(","),
                     fontSize: 13,
                 },
-                Button:{
+                h4:{
                     fontFamily:['Work Sans','Lexend'].join(","),
                     fontSize: 18,
                 },
-                Caption:{
+                h5:{
                     fontFamily:['Work Sans','Lexend'].join(","),
                     fontSize: 16,
                 },
