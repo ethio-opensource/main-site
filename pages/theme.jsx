@@ -68,17 +68,14 @@ export const themeSettings = (mode) =>{
             ...(mode === 'light' ?
             {
                 primary:{
-                    main: colors.primary[600]
+                    main: colors.primary[500],
                 },
                 secondary:{
-                    main: colors.secondary[600]
+                    main: colors.secondary[500],
                 },
                 neutral:{
                     main: colors.neutral[400],
                     dark: colors.neutral[700]
-                },
-                background:{
-                    default: colors.primary[600]
                 }
             }:{
                 primary:{
@@ -89,7 +86,6 @@ export const themeSettings = (mode) =>{
                 },
                 neutral:{
                     main: colors.neutral[700],
-                    dark: colors.neutral[400]
                 },
                 background:{
                     default: colors.primary[600]
@@ -100,15 +96,15 @@ export const themeSettings = (mode) =>{
                 fontFamily:['Work Sans','Lexend'].join(","),
                 fontSize: 13,
                 h1:{
-                    fontFamily:['Work Sans'].join(","),
+                    fontFamily:['Lexend','Work Sans'].join(","),
                     fontSize: 34,
                 },
                 h2:{
-                    fontFamily:['Work Sans'].join(","),
+                    fontFamily:['Lexend','Work Sans'].join(","),
                     fontSize: 20,
                 },
                 h3:{
-                    fontFamily:['Work Sans'].join(","),
+                    fontFamily:['Lexend','Work Sans'].join(","),
                     fontSize: 13,
                 },
                 h4:{

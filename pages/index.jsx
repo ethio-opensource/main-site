@@ -1,9 +1,10 @@
 import { colorModeContext,tokens,useMode } from "./theme"
-import { ThemeProvider } from "@mui/material"
-import { Typography,useTheme,Button } from "@mui/material"
+import {ThemeProvider, Typography,useTheme,Button, Avatar} from "@mui/material"
 import {BsPlusCircle} from 'react-icons/bs'
 import Image  from "next/image"
 import Link from "next/link"
+import {FaGreaterThan} from 'react-icons/fa'
+import {BsFacebook,BsInstagram,BsTwitter} from 'react-icons/bs'
 
 const HomePage = () => {
   // const [theme, colorMode] = useMode()
@@ -12,6 +13,7 @@ const HomePage = () => {
   return (
     <colorModeContext.Provider >
       <ThemeProvider theme={theme}>
+        {/* The front section of the landing page designed for Ethio Open Source Community */}
         <div style={{display:'flex', flexDirection:'column',alignItems:'center',justifyContent:'center'}}>
           <div style={{display:'flex', flexDirection:'column',alignItems:'center',justifyContent:'center',marginBottom:'5rem'}}>
             <div style={{display:'flex',justifyContent:'center',flexWrap:'wrap'}}>
@@ -32,10 +34,10 @@ const HomePage = () => {
                 Making differece in Ethiopia and Beyond
             </Typography>
             <div style={{display:'flex',flexDirection:'row',margin:'15px'}}>
-              <Button sx={{backgroundColor:'black',color:'white', borderRadius:20,padding:'5px 10px',marginX:'5px'}}>
+              <Button variant="contained" sx={{backgroundColor:colors.neutral[700],color:'white',textTransform:'capitalize' ,borderRadius:20,padding:'5px 20px',marginX:'5px',}}>
                 Support Us
               </Button>
-              <Button sx={{border:'1px solid black',borderRadius:20,color:'black',padding:'5px 10px',marginX:'5px'}}>
+              <Button sx={{border:'1px solid black',borderRadius:20,color:'black',textTransform:'capitalize', padding:'5px 20px',marginX:'5px'}}>
                 Contribute
               </Button>
 
@@ -87,6 +89,7 @@ const HomePage = () => {
               </div>
             </div>
           </div>
+          {/* Companies that work with Ethio Open Source Community */}
           <div style={{display:'flex', flexDirection:'column',alignItems:'center',justifyContent:'space-between',backgroundColor:'blue',flexWrap:'wrap',width:'98.5vw'}}>
             <div style={{margin:'2rem'}}>
               <Typography variant="h5" sx={{color:'white'}}>
@@ -115,10 +118,11 @@ const HomePage = () => {
                     tools, and services.
                     </Typography>
                   </div>
-                  <div>
-                    <Link href='/'>
-                      <Typography variant="h5" style={{color:colors.primary[500]}}>
+                  <div >
+                    <Link href='/' style={{textDecoration:'none'}}>
+                      <Typography variant="h5" style={{color:colors.primary[500],display:'flex',alignItems:'center',gap:'1rem'}}>
                         Learn More
+                        <FaGreaterThan/>
                       </Typography>
                     </Link>
                   </div>
@@ -146,9 +150,10 @@ const HomePage = () => {
                     </Typography>
                   </div>
                   <div>
-                    <Link href='/'>
-                      <Typography variant="h5" style={{color:colors.primary[500]}}>
+                  <Link href='/' style={{textDecoration:'none'}}>
+                      <Typography variant="h5" style={{color:colors.primary[500],display:'flex',alignItems:'center',gap:'1rem'}}>
                         Learn More
+                        <FaGreaterThan/>
                       </Typography>
                     </Link>
                   </div>
@@ -156,7 +161,7 @@ const HomePage = () => {
               </div>
             </div>
           </div>
-          <div style={{display:'flex',height:'70vh',flexDirection:'column',alignItems:'center',justifyContent:'space-around', backgroundColor:'whitesmoke',width:'98.5vw'}}>
+          <div style={{display:'flex',height:'80vh',flexDirection:'column',alignItems:'center',justifyContent:'space-around', backgroundColor:'whitesmoke',width:'98.5vw'}}>
             <div style={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'space-evenly',gap:'1rem'}}>
               <Typography variant="h5">
                 Explore Our Projects
@@ -178,7 +183,7 @@ const HomePage = () => {
                 <Typography >
                   Toyota
                 </Typography>
-                <Link href='/' style={{textDecoration:'none',marginBottom:'10px'}}>
+                <Link href='/' style={{textDecoration:'none',marginBottom:'10px',color:colors.primary[500]}}>
                   toyota.com
                 </Link>
               </div>
@@ -196,7 +201,7 @@ const HomePage = () => {
                 <Typography >
                   Toyota
                 </Typography>
-                <Link href='/' style={{textDecoration:'none',marginBottom:'10px'}}>
+                <Link href='/' style={{textDecoration:'none',marginBottom:'10px',color:colors.primary[500]}}>
                   toyota.com
                 </Link>
               </div>
@@ -214,7 +219,7 @@ const HomePage = () => {
                 <Typography >
                   Toyota
                 </Typography>
-                <Link href='/' style={{textDecoration:'none',marginBottom:'10px'}}>
+                <Link href='/' style={{textDecoration:'none',marginBottom:'10px',color:colors.primary[500]}}>
                   toyota.com
                 </Link>
               </div>
@@ -232,7 +237,7 @@ const HomePage = () => {
                 <Typography >
                   Toyota
                 </Typography>
-                <Link href='/' style={{textDecoration:'none',marginBottom:'10px'}}>
+                <Link href='/' style={{textDecoration:'none',marginBottom:'10px',color:colors.primary[500]}}>
                   toyota.com
                 </Link>
               </div>
@@ -250,7 +255,7 @@ const HomePage = () => {
                 <Typography >
                   Toyota
                 </Typography>
-                <Link href='/' style={{textDecoration:'none',marginBottom:'10px'}}>
+                <Link href='/' style={{textDecoration:'none',marginBottom:'10px',color:colors.primary[500]}}>
                   toyota.com
                 </Link>
               </div>
@@ -268,25 +273,318 @@ const HomePage = () => {
                 <Typography >
                   Toyota
                 </Typography>
-                <Link href='/' style={{textDecoration:'none',marginBottom:'10px'}}>
+                <Link href='/' style={{textDecoration:'none',marginBottom:'10px',color:colors.primary[500]}}>
                   toyota.com
                 </Link>
               </div>
 
             </div>
             </div>
-
-
-
+            <div>
+            <Button variant="contained" sx={{ backgroundColor:colors.primary[500] ,textTransform:'capitalize' ,borderRadius:20,padding:'5px 20px',marginX:'5px',}}>
+                See All Projects
+              </Button>
+            </div>
           </div>
-          <div style={{display:'flex', flexDirection:'column',height:'100vh',alignItems:'center',justifyContent:'center'}}>
-
+          {/* Users Feedback Section  */}
+          <div style={{display:'flex', flexDirection:'column',alignItems:'center',justifyContent:'center',background:colors.neutral[700],width:'98.5vw',gap:'4rem'}}>
+            <div style={{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center',gap:'.5rem',margin:'1rem 0 0 0'}}>
+              <Typography variant="h3" style={{color:'white'}}>
+                    What Our Community Members Say
+              </Typography>
+              <Typography variant="h5" style={{color:'white'}}>
+                    Our community is made up of developers, designers, and tech enthusiasts  
+              </Typography>
+              <Typography variant="h5" style={{color:'white'}}>
+                    from all over Ethiopia who share a passion for open technology and
+              </Typography>
+              <Typography variant="h5" style={{color:'white'}}>
+                    collaborative problem-solving.
+              </Typography>
+            </div>
+            <div style={{display:'flex',alignItems:'center',justifyContent:'center',margin:'2rem',padding:'0 9rem',gap:'2rem'}}>
+              <div style={{display:'flex',flexDirection:'column',width:'33.3%',gap:'1rem'}}>
+                <div style={{display:'flex',flexDirection:'column',gap:'2rem',alignItems:'space-between',padding:'1rem', borderRadius:'16px',boxShadow:' 0px 20px 25px -5px rgba(15, 23, 42, 0.1), 0px 8px 10px -6px rgba(15, 23, 42, 0.1)',background:'white'}}>
+                  <div>
+                    <Typography>
+                        TaxPal is so easy to use I can’t help but wonder if it’s really 
+                        doing the things the government expects me to do.
+                    </Typography>
+                  </div>
+                  <div style={{display:'flex',gap:'2rem',justifyContent:'space-between',alignItems:'center'}}>
+                    <div style={{display:'flex',flexDirection:'column' ,gap:'10px'}}>
+                        <Typography variant="h5">
+                          Sheryl Berge
+                        </Typography>
+                        <Typography variant="h6" style={{fontSize:'12px'}}>
+                          CEO at Lynch LLC
+                        </Typography>
+                    </div>
+                    <div>
+                      <Avatar alt='Sheryl Bereg' src="/image/ceo.jpg" />
+                    </div>
+                  </div>
+                </div>
+                <div style={{display:'flex',flexDirection:'column',gap:'2rem',alignItems:'space-between',padding:'1rem', borderRadius:'16px',boxShadow:' 0px 20px 25px -5px rgba(15, 23, 42, 0.1), 0px 8px 10px -6px rgba(15, 23, 42, 0.1)',background:'white'}}>
+                  <div>
+                    <Typography>
+                        TaxPal is so easy to use I can’t help but wonder if it’s really 
+                        doing the things the government expects me to do.
+                    </Typography>
+                  </div>
+                  <div style={{display:'flex',gap:'2rem',justifyContent:'space-between',alignItems:'center'}}>
+                    <div style={{display:'flex',flexDirection:'column' ,gap:'10px'}}>
+                        <Typography variant="h5">
+                          Sheryl Berge
+                        </Typography>
+                        <Typography variant="h6" style={{fontSize:'12px'}}>
+                          CEO at Lynch LLC
+                        </Typography>
+                    </div>
+                    <div>
+                      <Avatar alt='Sheryl Bereg' src="/image/ceo.jpg" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style={{display:'flex',flexDirection:'column',width:'33.3%',gap:'1rem',padding:'2.5rem 0 0 0'}}>
+                <div style={{display:'flex',flexDirection:'column',gap:'2rem',alignItems:'space-between',padding:'1rem', borderRadius:'16px',boxShadow:' 0px 20px 25px -5px rgba(15, 23, 42, 0.1), 0px 8px 10px -6px rgba(15, 23, 42, 0.1)',background:'white'}}>
+                  <div>
+                    <Typography>
+                        The best part about TaxPal is every time I pay my employees, 
+                        my bank balance doesn’t go down like it used to. Looking forward 
+                        to spending this extra cash when I figure out why my card is being declined.
+                    </Typography>
+                  </div>
+                  <div style={{display:'flex',gap:'2rem',justifyContent:'space-between',alignItems:'center'}}>
+                    <div style={{display:'flex',flexDirection:'column' ,gap:'10px'}}>
+                        <Typography variant="h5">
+                          Sheryl Berge
+                        </Typography>
+                        <Typography variant="h6" style={{fontSize:'12px'}}>
+                          CEO at Lynch LLC
+                        </Typography>
+                    </div>
+                    <div>
+                      <Avatar alt='Sheryl Bereg' src="/image/ceo.jpg" />
+                    </div>
+                  </div>
+                </div>
+                <div style={{display:'flex',flexDirection:'column',gap:'2rem',alignItems:'space-between',padding:'1rem', borderRadius:'16px',boxShadow:' 0px 20px 25px -5px rgba(15, 23, 42, 0.1), 0px 8px 10px -6px rgba(15, 23, 42, 0.1)',background:'white'}}>
+                  <div>
+                    <Typography>
+                        TaxPal is so easy to use I can’t help but wonder if it’s really 
+                        doing the things the government expects me to do.
+                    </Typography>
+                  </div>
+                  <div style={{display:'flex',gap:'2rem',justifyContent:'space-between',alignItems:'center'}}>
+                    <div style={{display:'flex',flexDirection:'column' ,gap:'10px'}}>
+                        <Typography variant="h5">
+                          Sheryl Berge
+                        </Typography>
+                        <Typography variant="h6" style={{fontSize:'12px'}}>
+                          CEO at Lynch LLC
+                        </Typography>
+                    </div>
+                    <div>
+                      <Avatar alt='Sheryl Bereg' src="/image/ceo.jpg" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style={{display:'flex',flexDirection:'column',width:'33.3%',gap:'1rem'}}>
+                <div style={{display:'flex',flexDirection:'column',gap:'2rem',alignItems:'space-between',padding:'1rem', borderRadius:'16px',boxShadow:' 0px 20px 25px -5px rgba(15, 23, 42, 0.1), 0px 8px 10px -6px rgba(15, 23, 42, 0.1)',background:'white'}}>
+                  <div>
+                    <Typography>
+                        TaxPal is so easy to use I can’t help but wonder if it’s really 
+                        doing the things the government expects me to do.
+                    </Typography>
+                  </div>
+                  <div style={{display:'flex',gap:'2rem',justifyContent:'space-between',alignItems:'center'}}>
+                    <div style={{display:'flex',flexDirection:'column' ,gap:'10px'}}>
+                        <Typography variant="h5">
+                          Sheryl Berge
+                        </Typography>
+                        <Typography variant="h6" style={{fontSize:'12px'}}>
+                          CEO at Lynch LLC
+                        </Typography>
+                    </div>
+                    <div>
+                      <Avatar alt='Sheryl Bereg' src="/image/ceo.jpg" />
+                    </div>
+                  </div>
+                </div>
+                <div style={{display:'flex',flexDirection:'column',gap:'2rem',alignItems:'space-between',padding:'1rem', borderRadius:'16px',boxShadow:' 0px 20px 25px -5px rgba(15, 23, 42, 0.1), 0px 8px 10px -6px rgba(15, 23, 42, 0.1)',background:'white'}}>
+                  <div>
+                    <Typography>
+                        TaxPal is so easy to use I can’t help but wonder if it’s really 
+                        doing the things the government expects me to do.
+                    </Typography>
+                  </div>
+                  <div style={{display:'flex',gap:'2rem',justifyContent:'space-between',alignItems:'center'}}>
+                    <div style={{display:'flex',flexDirection:'column' ,gap:'10px'}}>
+                        <Typography variant="h5">
+                          Sheryl Berge
+                        </Typography>
+                        <Typography variant="h6" style={{fontSize:'12px'}}>
+                          CEO at Lynch LLC
+                        </Typography>
+                    </div>
+                    <div>
+                      <Avatar alt='Sheryl Bereg' src="/image/ceo.jpg" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div style={{display:'flex', flexDirection:'column',height:'100vh',alignItems:'center',justifyContent:'center'}}>
+          {/* The frequently asked section of the landing page */}
+          <div style={{display:'flex', flexDirection:'column',height:'100vh',alignItems:'center',justifyContent:'center',background:'#F8FAFC',width:'98.5vw',padding:'2rem 5rem'}}>
+            <div style={{display:'flex',justifyContent:'flex-start',flexDirection:'column',padding:'2rem',gap:'1rem',flexWrap:'wrap',width:'98.5vw',}}>
+              <Typography variant="h3">
+                Frequently asked questions
+              </Typography>
+              <Typography variant="h5">
+                If you can’t find what you’re looking for, email our support team and if
+              </Typography>
+              <Typography variant="h5">
+                you’re lucky someone will get back to you.
+              </Typography>
+            </div>
+            <div style={{display:'flex',width:'98.5vw'}}>
+              <div style={{display:'flex',flexDirection:'column',width:'33.3vw',padding:'2rem',gap:'.5rem'}}>
+                <Typography variant="h5">
+                Does TaxPal handle VAT?
+                </Typography>
+                <Typography>
+                Well no, but if you move your company offshore you can probably ignore it.
+                </Typography>
 
+              </div>
+              <div style={{display:'flex',width:'33.3vw',flexDirection:'column',padding:'2rem',gap:'.5rem'}}>
+              <Typography variant="h5">
+                Does TaxPal handle VAT?
+                </Typography>
+                <Typography>
+                Well no, but if you move your company offshore you can probably ignore it.
+                </Typography>
+              </div>
+              <div style={{display:'flex',width:'33.3vw',flexDirection:'column',padding:'2rem',gap:'.5rem'}}>
+              <Typography variant="h5">
+                Does TaxPal handle VAT?
+                </Typography>
+                <Typography>
+                Well no, but if you move your company offshore you can probably ignore it.
+                </Typography>
+              </div>
+              
+            </div>
+            <div style={{display:'flex',width:'98.5vw'}}>
+              <div style={{display:'flex',flexDirection:'column',width:'33.3vw',padding:'2rem',gap:'.5rem'}}>
+                <Typography variant="h5">
+                Does TaxPal handle VAT?
+                </Typography>
+                <Typography>
+                Well no, but if you move your company offshore you can probably ignore it.
+                </Typography>
+
+              </div>
+              <div style={{display:'flex',width:'33.3vw',flexDirection:'column',padding:'2rem',gap:'.5rem'}}>
+              <Typography variant="h5">
+                Does TaxPal handle VAT?
+                </Typography>
+                <Typography>
+                Well no, but if you move your company offshore you can probably ignore it.
+                </Typography>
+              </div>
+              <div style={{display:'flex',width:'33.3vw',flexDirection:'column',padding:'2rem',gap:'.5rem'}}>
+              <Typography variant="h5">
+                Does TaxPal handle VAT?
+                </Typography>
+                <Typography>
+                Well no, but if you move your company offshore you can probably ignore it.
+                </Typography>
+              </div>
+              
+            </div>
+            <div style={{display:'flex',width:'98.5vw'}}>
+              <div style={{display:'flex',flexDirection:'column',width:'33.3vw',padding:'2rem',gap:'.5rem'}}>
+                <Typography variant="h5">
+                Does TaxPal handle VAT?
+                </Typography>
+                <Typography>
+                Well no, but if you move your company offshore you can probably ignore it.
+                </Typography>
+
+              </div>
+              <div style={{display:'flex',width:'33.3vw',flexDirection:'column',padding:'2rem',gap:'.5rem'}}>
+              <Typography variant="h5">
+                Does TaxPal handle VAT?
+                </Typography>
+                <Typography>
+                Well no, but if you move your company offshore you can probably ignore it.
+                </Typography>
+              </div>
+              <div style={{display:'flex',width:'33.3vw',flexDirection:'column',padding:'2rem',gap:'.5rem'}}>
+              <Typography variant="h5">
+                Does TaxPal handle VAT?
+                </Typography>
+                <Typography>
+                Well no, but if you move your company offshore you can probably ignore it.
+                </Typography>
+              </div>
+              
+            </div>
           </div>
-          <div style={{display:'flex', flexDirection:'column',height:'100vh',alignItems:'center',justifyContent:'center'}}>
+          <div style={{display:'flex', flexDirection:'column',height:'100vh',alignItems:'center',justifyContent:'center',background:'blue',width:'98.5vw',gap:'2rem',color:'whitesmoke'}}>
+            <Typography variant="h3">
+              Stay Connected With OpenEth
+            </Typography>
+            <div style={{display:'flex',alignItems:'center',justifyContent:'center',gap:'1.5rem'}}>
+              <div style={{display:'flex',flexDirection:'column'}}>
+                <form>
+                  <Typography variant="h5">
+                    Full Name
+                  </Typography>
+                  <input
+                    type="text"
+                    style={{borderRadius:'10px',padding:'0.5rem 2rem',margin:'1rem 0'}}
+                  />
+                </form>
+              </div>
+              <div style={{display:'flex',flexDirection:'column'}}>
+                <form>
+                  <Typography variant="h5">
+                    Email
+                  </Typography>
+                  <input
+                    type="email"
+                    style={{borderRadius:'10px',padding:'0.5rem 2rem',margin:'1rem 0'}}
+                  />
+                </form>
+              </div>
+              <div style={{display:'flex',flexDirection:'column'}}>
+                <form>
+                  <Typography variant="h5">
+                    Message
+                  </Typography>
+                  <input
+                    type="text"
+                    style={{borderRadius:'10px',padding:'0.5rem 2rem',margin:'1rem 0'}}
+                  />
+                </form>
+              </div>
+              <div style={{}}>
+              <Typography style={{padding:'1rem 0'}}></Typography>
+              <Button type="submit" style={{border:'2px solid #0F172A',backgroundColor:'#0F172A',borderRadius:'2rem',padding:'0.25rem 1.75rem',color:'white'}}>Subscibe</Button>
+              </div>
 
+            </div>
+            <div style={{display:'flex',justifyContent:'center',alignItems:'center',gap:'2rem',fontSize:'24px',color:'black'}}>
+              <BsFacebook/>
+              <BsInstagram/>
+              <BsTwitter/>
+            </div>
           </div>
 
         </div>
