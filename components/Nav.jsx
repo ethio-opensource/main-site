@@ -1,11 +1,5 @@
-import AppBar from '@mui/material/AppBar'
-import Box from '@mui/material/Box'
-import Toolbar from '@mui/material/Toolbar'
-import Typography from '@mui/material/Typography'
-import Container from '@mui/material/Container'
-import Button from '@mui/material/Button'
 import NextLink from 'next/link'
-import { Link } from '@mui/material'
+import { AppBar, Box, Toolbar, Typography, Container, Button, Link } from '@mui/material'
 import { forwardRef } from 'react'
 
 const LinkBehavoir = forwardRef((props, ref) => (
@@ -29,7 +23,7 @@ function Nav() {
   return (
     <AppBar position="static" elevation={0} color="transparent">
       <Container>
-        <Toolbar disableGutters>
+        <Toolbar sx={{paddingTop: '25px'}} disableGutters>
           <Typography
             variant="h6"
             noWrap
@@ -38,7 +32,7 @@ function Nav() {
             sx={{
               mr: 2,
               color: 'inherit',
-              textDecoration: 'none',
+              textDecoration: 'none'
             }}
           >
             Ethio OpenSource
