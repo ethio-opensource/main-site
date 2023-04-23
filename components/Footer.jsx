@@ -1,8 +1,4 @@
-import Box from '@mui/material/Box'
-import Typography from '@mui/material/Typography'
-import Container from '@mui/material/Container'
-import Link from '@mui/material/Link'
-import { Divider } from '@mui/material'
+import { Typography, Box, Container, Link, Divider } from '@mui/material'
 import { NavLink } from './Nav'
 
 const Copyright = () => (
@@ -27,7 +23,7 @@ const Footer = () => {
         backgroundColor: (theme) =>
           theme.palette.mode === 'light'
             ? theme.palette.grey[200]
-            : theme.palette.grey[800],
+            : theme.palette.grey[800]
       }}
     >
       <Container>
@@ -37,7 +33,7 @@ const Footer = () => {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            gap: 2,
+            gap: 2
           }}
         >
           <Typography variant="h6">Logo</Typography>
