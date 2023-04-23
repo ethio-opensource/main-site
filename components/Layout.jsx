@@ -1,5 +1,4 @@
-import { Container } from '@mui/material'
-import Box from '@mui/material/Box'
+import { Container, Box } from '@mui/material'
 import Footer from './Footer'
 import Nav from './Nav'
 
@@ -9,7 +8,7 @@ const Layout = ({ children }) => {
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        minHeight: '100vh',
+        minHeight: '100vh'
       }}
     >
       <Box>
