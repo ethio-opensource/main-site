@@ -2,22 +2,16 @@ import NextLink from 'next/link'
 import { AppBar, Box, Toolbar, Typography, Container, Button, Link } from '@mui/material'
 import { forwardRef } from 'react'
 
-const LinkBehavoir = forwardRef((props, ref) => (
-  <NextLink ref={ref} {...props} />
-))
+// eslint-disable-next-line react/display-name
+const LinkBehavoir = forwardRef((props, ref) => <NextLink ref={ref} {...props} />);
 
 export const NavLink = ({ children, href }) => {
   return (
-    <Link
-      underline="hover"
-      sx={{ mx: 1, fontSize: 18 }}
-      component={LinkBehavoir}
-      href={href}
-    >
+    <Link underline="hover" sx={{ mx: 1, fontSize: 18 }} component={LinkBehavoir} href={href}>
       {children}
     </Link>
-  )
-}
+  );
+};
 
 function Nav() {
   return (
@@ -40,7 +34,7 @@ function Nav() {
 
           <Box sx={{ flexGrow: 1, gap: 1 }}>
             <NavLink href="/about">About Us</NavLink>
-            <NavLink href="/project">Projects</NavLink>
+            <NavLink href="/projects">Projects</NavLink>
             <NavLink href="/resources">Resources</NavLink>
             <NavLink href="/news">News</NavLink>
           </Box>
@@ -56,7 +50,7 @@ function Nav() {
         </Toolbar>
       </Container>
     </AppBar>
-  )
+  );
 }
 
-export default Nav
+export default Nav;
