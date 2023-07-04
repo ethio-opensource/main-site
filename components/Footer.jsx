@@ -1,4 +1,4 @@
-import { Typography, Box, Container, Link, Divider } from '@mui/material'
+import { Typography, Box, Container, Link, Divider, Image } from '@mui/material'
 import { NavLink } from './Nav'
 
 const Copyright = () => (
@@ -36,7 +36,7 @@ const Footer = () => {
             gap: 2
           }}
         >
-          <Typography variant="h6">Logo</Typography>
+          <Image width={150} height={50} src="/images/logo.png" alt="logo" />
           <Box>
             <NavLink href="/about">About Us</NavLink>
             <NavLink href="/project">Projects</NavLink>
