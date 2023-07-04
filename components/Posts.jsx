@@ -7,7 +7,7 @@ const Posts = () => {
       {
         posts.map((post, index) => (
           <Grid item xs={4} key={index}>
-            <Card>
+            <Card sx={{ marginBottom: '20px' }}>
               <Box
                 component='img'
                 sx={{
