@@ -1,5 +1,6 @@
-import { Typography, Box, Container, Link, Divider, Image } from '@mui/material'
-import { NavLink } from './Nav'
+import { Typography, Box, Container, Link, Divider } from '@mui/material';
+import Image from 'next/image';
+import { NavLink } from './Nav';
 
 const Copyright = () => (
   <Typography variant="body1" color="text.secondary" py={4}>
@@ -10,7 +11,7 @@ const Copyright = () => (
     </Link>{' '}
     . All right reserved
   </Typography>
-)
+);
 
 const Footer = () => {
   return (
@@ -21,9 +22,7 @@ const Footer = () => {
         px: 2,
         mt: 'auto',
         backgroundColor: (theme) =>
-          theme.palette.mode === 'light'
-            ? theme.palette.grey[200]
-            : theme.palette.grey[800]
+          theme.palette.mode === 'light' ? theme.palette.grey[200] : theme.palette.grey[800],
       }}
     >
       <Container>
@@ -33,7 +32,7 @@ const Footer = () => {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            gap: 2
+            gap: 2,
           }}
         >
           <Image width={150} height={50} src="/images/logo.png" alt="logo" />
@@ -48,7 +47,7 @@ const Footer = () => {
         <Copyright />
       </Container>
     </Box>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
