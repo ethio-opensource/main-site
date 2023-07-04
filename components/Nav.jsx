@@ -29,7 +29,7 @@ function Nav() {
 
           <Box sx={{ flexGrow: 0 }}>
             <Button color="inherit" sx={{ marginRight: 1 }}>
-              Sign In
+              Join This Community
             </Button>
             <Button variant="contained" disableElevation>
               Support Us
