@@ -1,6 +1,7 @@
-import NextLink from 'next/link'
-import { AppBar, Box, Toolbar, Typography, Container, Button, Link } from '@mui/material'
-import { forwardRef } from 'react'
+import NextLink from 'next/link';
+import { AppBar, Box, Toolbar, Container, Button, Link } from '@mui/material';
+import { forwardRef } from 'react';
+import Image from 'next/image';
 
 // eslint-disable-next-line react/display-name
 const LinkBehavoir = forwardRef((props, ref) => <NextLink ref={ref} {...props} />);
@@ -17,22 +18,9 @@ function Nav() {
   return (
     <AppBar position="static" elevation={0} color="transparent">
       <Container>
-        <Toolbar sx={{paddingTop: '25px'}} disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              color: 'inherit',
-              textDecoration: 'none'
-            }}
-          >
-            Ethio OpenSource
-          </Typography>
-
-          <Box sx={{ flexGrow: 1, gap: 1 }}>
+        <Toolbar sx={{ paddingTop: '25px' }} disableGutters>
+          <Image width={150} height={50} src="/images/eos.png" alt="logo" />
+          <Box sx={{ flexGrow: 1, gap: 1 }} ml={2}>
             <NavLink href="/about">About Us</NavLink>
             <NavLink href="/projects">Projects</NavLink>
             <NavLink href="/resources">Resources</NavLink>
