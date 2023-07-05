@@ -28,10 +28,17 @@ function Nav() {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Button color="inherit" sx={{ marginRight: 1, borderRadius: 20 }}>
+            <Button
+              color="inherit"
+              sx={{ marginRight: 1, borderRadius: 20, textTransform: 'capitalize' }}
+            >
               Sign In
             </Button>
-            <Button variant="contained" sx={{ borderRadius: 20 }} disableElevation>
+            <Button
+              variant="contained"
+              sx={{ borderRadius: 20, textTransform: 'capitalize' }}
+              disableElevation
+            >
               Support Us
             </Button>
           </Box>
