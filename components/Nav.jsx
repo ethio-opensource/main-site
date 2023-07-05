@@ -19,7 +19,7 @@ function Nav() {
     <AppBar position="static" elevation={0} color="transparent">
       <Container>
         <Toolbar sx={{ paddingTop: '25px' }} disableGutters>
-          <Image width={150} height={50} src="/images/eos.png" alt="logo" />
+          <Image width={150} height={50} src="/images/logo.png" alt="logo" />
           <Box sx={{ flexGrow: 1, gap: 1 }} ml={2}>
             <NavLink href="/about">About Us</NavLink>
             <NavLink href="/projects">Projects</NavLink>
@@ -28,10 +28,10 @@ function Nav() {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Button color="inherit" sx={{ marginRight: 1 }}>
+            <Button color="inherit" sx={{ marginRight: 1, borderRadius: 20 }}>
               Sign In
             </Button>
-            <Button variant="contained" disableElevation>
+            <Button variant="contained" sx={{ borderRadius: 20 }} disableElevation>
               Support Us
             </Button>
           </Box>
