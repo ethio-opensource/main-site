@@ -24,7 +24,7 @@ function Nav() {
             <NavLink href="/about">About Us</NavLink>
             <NavLink href="/projects">Projects</NavLink>
             <NavLink href="/resources">Resources</NavLink>
-            <NavLink href="/news">News</NavLink>
+            <NavLink href="/contact">Contact Us</NavLink>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>

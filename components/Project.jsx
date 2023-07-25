@@ -1,16 +1,41 @@
-import { Card, CardContent, CardMedia, Typography } from '@mui/material';
-import Link from 'next/link';
+import * as React from 'react';
+import Card from '@mui/joy/Card';
+import CardCover from '@mui/joy/CardCover';
+import CardContent from '@mui/joy/CardContent';
+import Typography from '@mui/joy/Typography';
+import LocationOnRoundedIcon from '@mui/icons-material/LocationOnRounded';
+import { Image } from '@mui/icons-material';
+export default function GradientCover() {
 
-const Project = () => (
-  <Card sx={{ width: 383 }}>
-    <CardMedia image="/svg/toyota-1.svg" sx={{ height: 200 }} title="Toyota logo" />
-    <CardContent>
-      <Typography variant="h6">Toyota</Typography>
-      <Link href="/" style={{ textDecoration: 'none', marginBottom: '10px' }}>
-        toyota.com
-      </Link>
-    </CardContent>
-  </Card>
-);
+  const img1 = 'https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320'
 
-export default Project;
+  return (
+    <Card sx={{ minHeight: '280px', width: 320 }}>
+      <CardCover>
+        <img
+          src="https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320"
+          srcSet="https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320&dpr=2 2x"
+          loading="lazy"
+          alt=""
+        />
+      </CardCover>
+      <CardCover
+        sx={{
+          background:
+            'linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0) 200px), linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 300px)',
+        }}
+      />
+      <CardContent sx={{ justifyContent: 'flex-end' }}>
+        <Typography level="h2" fontSize="lg" textColor="#fff" mb={1}>
+          Yosemite National Park
+        </Typography>
+        <Typography
+          startDecorator={<LocationOnRoundedIcon />}
+          textColor="neutral.300"
+        >
+          California, USA
+        </Typography>
+      </CardContent>
+    </Card>
+  );
+}
