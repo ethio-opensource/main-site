@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { FaGreaterThan } from 'react-icons/fa';
 import { BsFacebook, BsInstagram, BsTwitter } from 'react-icons/bs';
 import { Hero } from '../components/Hero';
-import { Companies } from '../components/Companies';
+import { Partners } from '../components/Partners';
 import { FAQ } from '../components/FAQ';
 import { Contact } from '../components/Contact';
 import { UserFeedback } from '../components/UserFeedback';
@@ -18,7 +18,6 @@ const HomePage = () => {
   return (
     <colorModeContext.Provider>
       <ThemeProvider theme={theme}>
-        {/* The front section of the landing page designed for Ethio Open Source Community */}
         <Box
           sx={{
             display: 'flex',
@@ -28,7 +27,7 @@ const HomePage = () => {
           }}
         >
           <Hero />
-          <Companies />
+          <Partners />
           <div
             style={{
               display: 'flex',
@@ -37,7 +36,7 @@ const HomePage = () => {
               justifyContent: 'space-between',
               backgroundColor: 'blue',
               flexWrap: 'wrap',
-              width: '100vw',
+              width: '100%',
             }}
           >
             <div style={{ margin: '2rem' }}>
