@@ -1,6 +1,6 @@
 import { Typography, Box, Container, Link, Divider } from '@mui/material';
-import Image from 'next/image';
 import { NavLink } from './Nav';
+import Image from 'next/image';
 
 const Copyright = () => (
   <Typography variant="body1" color="text.secondary" py={4}>
