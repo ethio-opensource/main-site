@@ -15,9 +15,9 @@ function FeaturedProjects() {
 
   return (
     <>
-      {featuredProjects.map((project) => (
+      {featuredProjects.map((project, index) => (
         <Card
-          key={project.id}
+          key={index}
           style={{
             display: 'flex',
             flexDirection: 'column',
