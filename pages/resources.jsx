@@ -9,9 +9,9 @@ import {
   InputAdornment,
 } from '@mui/material';
 import { BsSearch } from 'react-icons/bs';
-import { NavLink } from '../../components/Nav';
-import Posts from '../../components/Posts';
-import { posts } from '../../stores/posts';
+import { NavLink } from '../components/Nav';
+import Posts from '../components/Posts';
+import { posts } from '../stores/posts';
 
 const IconTextField = ({ iconEnd, InputProps, ...props }) => {
   return (
@@ -25,7 +25,7 @@ const IconTextField = ({ iconEnd, InputProps, ...props }) => {
   );
 };
 
-const Index = () => {
+const Resources = () => {
   const post = posts[0];
 
   return (
@@ -72,4 +72,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Resources;

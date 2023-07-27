@@ -40,7 +40,7 @@ const Footer = () => {
             <NavLink href="/about">About Us</NavLink>
             <NavLink href="/project">Projects</NavLink>
             <NavLink href="/resources">Resources</NavLink>
-            <NavLink href="/news">News</NavLink>
+            <NavLink href="/contact">Contact Us</NavLink>
           </Box>
         </Box>
         <Divider />

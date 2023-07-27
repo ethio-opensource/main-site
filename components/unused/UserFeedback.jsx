@@ -1,5 +1,5 @@
 import { Avatar, Typography, useTheme } from '@mui/material';
-import { tokens } from '../pages/theme';
+import { tokens } from '../../pages/theme';
 
 export function UserFeedback() {
   const theme = useTheme();
@@ -23,13 +23,13 @@ export function UserFeedback() {
           justifyContent: 'center',
           alignItems: 'center',
           gap: '.5rem',
-          margin: '1rem 0 0 0',
+          marginTop: '4rem',
         }}
       >
         <Typography variant="h3" style={{ color: 'white' }}>
           What Our Community Members Say
         </Typography>
-        <Typography variant="h5" style={{ color: 'white' }}>
+        <Typography variant="h5" style={{ color: 'white', marginTop: '20px' }}>
           Our community is made up of developers, designers, and tech enthusiasts
         </Typography>
         <Typography variant="h5" style={{ color: 'white' }}>
@@ -296,3 +296,43 @@ export function UserFeedback() {
     </div>
   );
 }
+
+
+<div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '2rem',
+              alignItems: 'space-between',
+              padding: '1rem',
+              borderRadius: '16px',
+              boxShadow:
+                ' 0px 20px 25px -5px rgba(15, 23, 42, 0.1), 0px 8px 10px -6px rgba(15, 23, 42, 0.1)',
+              background: 'white',
+            }}
+          >
+            <div>
+              <Typography>
+                TaxPal is so easy to use I can’t help but wonder if it’s really doing the things the
+                government expects me to do.
+              </Typography>
+            </div>
+            <div
+              style={{
+                display: 'flex',
+                gap: '2rem',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              }}
+            >
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <Typography variant="h5">Sheryl Berge</Typography>
+                <Typography variant="h6" style={{ fontSize: '12px' }}>
+                  CEO at Lynch LLC
+                </Typography>
+              </div>
+              <div>
+                <Avatar alt="Sheryl Bereg" src="/image/ceo.jpg" />
+              </div>
+            </div>
+          </div>

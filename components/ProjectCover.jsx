@@ -5,7 +5,8 @@ import CardContent from '@mui/joy/CardContent';
 import Typography from '@mui/joy/Typography';
 import LocationOnRoundedIcon from '@mui/icons-material/LocationOnRounded';
 import { Image } from '@mui/icons-material';
-export default function GradientCover() {
+
+export default function ProjectCover() {
 
   const img1 = 'https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320'
 
