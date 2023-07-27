@@ -2,28 +2,40 @@ import client from '../../client';
 import Image from 'next/image';
 import { PortableText } from '@portabletext/react';
 import { groq } from 'next-sanity';
-import { Avatar, Chip, Divider, Stack, Typography } from '@mui/material';
+import { Avatar, Chip, Divider, Stack } from '@mui/material';
 import { formatDistance } from 'date-fns';
 import '../../node_modules/highlight.js/styles/idea.css';
 import { ptComponents, urlFor } from '../../sanity/utils';
+import { Card, CardContent, CardCover, Typography } from '@mui/joy';
 
 export default function Post({ post }) {
   const { title, coverImage, author, categories = [], publishedAt, body = [] } = post;
 
   return (
     <article>
-      <Image
-        width={420}
-        height={240}
-        sizes="(max-width: 768px) 100vw"
-        style={{ objectFit: 'contain' }}
-        src={urlFor(coverImage).auto('format').url()}
-        alt={coverImage?.alt}
-      />
-      <Typography variant="h3" gutterBottom>
-        {title}
-      </Typography>
-      <Stack direction="row" spacing={2} alignItems="center">
+      <Card sx={{ minHeight: '280px', width: '100%' }}>
+        <CardCover>
+          <Image
+            src={urlFor(post.coverImage).width(345).url()}
+            height={280}
+            width={320}
+            loading="lazy"
+            alt={post.title + ' cover image'}
+          />
+        </CardCover>
+        <CardCover
+          sx={{
+            background:
+              'linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0) 200px), linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 300px)',
+          }}
+        />
+        <CardContent sx={{ justifyContent: 'flex-end' }}>
+          <Typography level="h2" textColor="#fff" mb={1}>
+            {title}
+          </Typography>
+        </CardContent>
+      </Card>
+      <Stack direction="row" mt={2} spacing={2} alignItems="center">
         <Avatar>
           <Image
             src={urlFor(author.image).width(50).url()}

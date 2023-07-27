@@ -4,11 +4,10 @@ import CardCover from '@mui/joy/CardCover';
 import CardContent from '@mui/joy/CardContent';
 import Typography from '@mui/joy/Typography';
 import LocationOnRoundedIcon from '@mui/icons-material/LocationOnRounded';
-import { Image } from '@mui/icons-material';
 
-export default function ProjectCover() {
-
-  const img1 = 'https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320'
+export default function Project() {
+  const img1 =
+    'https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320';
 
   return (
     <Card sx={{ minHeight: '280px', width: 320 }}>
@@ -30,10 +29,7 @@ export default function ProjectCover() {
         <Typography level="h2" fontSize="lg" textColor="#fff" mb={1}>
           Yosemite National Park
         </Typography>
-        <Typography
-          startDecorator={<LocationOnRoundedIcon />}
-          textColor="neutral.300"
-        >
+        <Typography startDecorator={<LocationOnRoundedIcon />} textColor="neutral.300">
           California, USA
         </Typography>
       </CardContent>

@@ -1,8 +1,8 @@
-import { Add, PlusOne } from '@mui/icons-material';
-import { Box, Chip, Grid, Modal, Pagination, Stack, Typography } from '@mui/material';
-import Project from '../components/Project';
+import { Add } from '@mui/icons-material';
+import { Chip, Grid, Modal, Pagination, Stack, Typography } from '@mui/material';
 import { useState } from 'react';
 import Filter from '../components/Filter';
+import Project from '../components/Project';
 
 export const CustomChip = (props) => (
   <Chip sx={{ borderRadius: 2, borderWidth: 0, boxShadow: 1 }} variant="outlined" {...props} />

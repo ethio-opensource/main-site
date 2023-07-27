@@ -11,7 +11,7 @@ import {
 import { BsSearch } from 'react-icons/bs';
 import { NavLink } from '../components/Nav';
 import Posts from '../components/Posts';
-import { posts } from '../stores/posts';
+import { posts } from '../store/posts';
 
 const IconTextField = ({ iconEnd, InputProps, ...props }) => {
   return (

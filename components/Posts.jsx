@@ -1,5 +1,5 @@
 import { Box, Typography, Grid, Card } from '@mui/material';
-import { posts } from '../stores/posts';
+import { posts } from '../store/posts';
 
 const Posts = () => {
   return (
