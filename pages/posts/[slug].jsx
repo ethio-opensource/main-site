@@ -1,61 +1,55 @@
-import ImageUrlBuilder from '@sanity/image-url';
 import client from '../../client';
 import Image from 'next/image';
 import { PortableText } from '@portabletext/react';
 import { groq } from 'next-sanity';
-import { Code } from '@mui/icons-material';
-import { Avatar, Box, Chip, Divider, Stack, Typography } from '@mui/material';
-import { CodeBlock } from 'react-code-blocks';
+import { Avatar, Chip, Divider, Stack } from '@mui/material';
 import { formatDistance } from 'date-fns';
-
-export function urlFor(source) {
-  return ImageUrlBuilder(client).image(source);
-}
-
-const ptComponents = {
-  types: {
-    image: ({ value }) => {
-      console.log(value);
-      if (!value?.asset?.ref) return null;
-      return (
-        <Image
-          alt={value.alt || ''}
-          loading="lazy"
-          width={320}
-          height={240}
-          src={urlFor(value).width(320).height(240).fit('max').auto('format')}
-        />
-      );
-    },
-    code: ({ value: { code, language } }) => {
-      return <CodeBlock customStyle={{ FontFace: 'monospace' }} text={code} language={language} />;
-    },
-  },
-  block: {
-    code: 'code',
-  },
-};
+import '../../node_modules/highlight.js/styles/idea.css';
+import { ptComponents, urlFor } from '../../sanity/utils';
+import { Card, CardContent, CardCover, Typography } from '@mui/joy';
 
 export default function Post({ post }) {
-  const { title, author, categories = [], authorImage, body = [] } = post;
+  const { title, coverImage, author, categories = [], publishedAt, body = [] } = post;
+
   return (
     <article>
-      <Typography variant="h3">{title}</Typography>
-      <Stack direction="row" spacing={2} alignItems="center">
+      <Card sx={{ minHeight: '280px', width: '100%' }}>
+        <CardCover>
+          <Image
+            src={urlFor(post.coverImage).width(345).url()}
+            height={280}
+            width={320}
+            loading="lazy"
+            alt={post.title + ' cover image'}
+          />
+        </CardCover>
+        <CardCover
+          sx={{
+            background:
+              'linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0) 200px), linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 300px)',
+          }}
+        />
+        <CardContent sx={{ justifyContent: 'flex-end' }}>
+          <Typography level="h2" textColor="#fff" mb={1}>
+            {title}
+          </Typography>
+        </CardContent>
+      </Card>
+      <Stack direction="row" mt={2} spacing={2} alignItems="center">
         <Avatar>
           <Image
-            src={urlFor(post.author.image).width(50).url()}
+            src={urlFor(author.image).width(50).url()}
             width={50}
             height={50}
-            alt={post.author.name}
+            alt={author.name}
           />
         </Avatar>
         <Stack>
           <Typography variant="h6" lineHeight={1}>
-            {post.author.name}
+            {author.name}
           </Typography>
           <Typography variant="subtitle1" lineHeight={1}>
-            {formatDistance(new Date(post.publishedAt), new Date(), { addSuffix: true })}
+            {formatDistance(new Date(publishedAt), new Date(), { addSuffix: true })}
           </Typography>
         </Stack>
       </Stack>
@@ -85,6 +79,7 @@ const query = groq`*[_type == "post" && slug.current == $slug][0] {
   title,
   "categories": categories[]->title,
   "slug" : slug.current,
+  "coverImage": mainImage,
   "author": author->{
     name,
     image
