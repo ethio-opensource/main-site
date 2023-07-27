@@ -73,7 +73,7 @@ const HomePage = () => {
           </Typography>
         </div>
         <div style={{ display: 'flex', gap: '2rem' }}>
-          <FeaturedProjects/>
+          {/* <FeaturedProjects/> */}
         </div>
         <div>
           <Button
