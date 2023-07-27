@@ -1,44 +1,15 @@
-import ImageUrlBuilder from '@sanity/image-url';
 import client from '../../client';
 import Image from 'next/image';
 import { PortableText } from '@portabletext/react';
 import { groq } from 'next-sanity';
-import { Avatar, Image as MImage, Chip, Divider, Stack, Typography } from '@mui/material';
+import { Avatar, Chip, Divider, Stack, Typography } from '@mui/material';
 import { formatDistance } from 'date-fns';
-import Highlight from 'react-highlight';
 import '../../node_modules/highlight.js/styles/idea.css';
-
-export function urlFor(source) {
-  return ImageUrlBuilder(client).image(source);
-}
-
-const ptComponents = {
-  types: {
-    image: ({ value }) => {
-      if (!value?.asset) return null;
-      return (
-        <Image
-          alt={value.alt || ''}
-          loading="lazy"
-          style={{ objectFit: 'contain' }}
-          width={420}
-          height={240}
-          src={urlFor(value).width(420).fit('max').auto('format').url()}
-        />
-      );
-    },
-    code: ({ value: { code, language } }) => {
-      return <Highlight className={language}>{code}</Highlight>;
-    },
-  },
-  block: {
-    code: 'code',
-  },
-};
+import { ptComponents, urlFor } from '../../sanity/utils';
 
 export default function Post({ post }) {
-  const { title, author, categories = [], authorImage, body = [] } = post;
-  // console.log(post.body);
+  const { title, coverImage, author, categories = [], publishedAt, body = [] } = post;
+
   return (
     <article>
       <Image
@@ -46,8 +17,8 @@ export default function Post({ post }) {
         height={240}
         sizes="(max-width: 768px) 100vw"
         style={{ objectFit: 'contain' }}
-        src={urlFor(post.coverImage).auto('format').url()}
-        alt={post.coverImage?.alt}
+        src={urlFor(coverImage).auto('format').url()}
+        alt={coverImage?.alt}
       />
       <Typography variant="h3" gutterBottom>
         {title}
@@ -55,18 +26,18 @@ export default function Post({ post }) {
       <Stack direction="row" spacing={2} alignItems="center">
         <Avatar>
           <Image
-            src={urlFor(post.author.image).width(50).url()}
+            src={urlFor(author.image).width(50).url()}
             width={50}
             height={50}
-            alt={post.author.name}
+            alt={author.name}
           />
         </Avatar>
         <Stack>
           <Typography variant="h6" lineHeight={1}>
-            {post.author.name}
+            {author.name}
           </Typography>
           <Typography variant="subtitle1" lineHeight={1}>
-            {formatDistance(new Date(post.publishedAt), new Date(), { addSuffix: true })}
+            {formatDistance(new Date(publishedAt), new Date(), { addSuffix: true })}
           </Typography>
         </Stack>
       </Stack>
