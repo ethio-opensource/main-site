@@ -24,6 +24,7 @@ function Nav() {
             <NavLink href="/about">About Us</NavLink>
             <NavLink href="/projects">Projects</NavLink>
             <NavLink href="/resources">Resources</NavLink>
+            <NavLink href="/posts">Blog</NavLink>
             <NavLink href="/contact">Contact Us</NavLink>
           </Box>
 

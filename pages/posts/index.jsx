@@ -26,8 +26,24 @@ const PostCard = ({ post }) => {
         />
       </CardMedia>
       <CardContent>
-        <Link href={`/posts/${post.slug}`}>
-          <Typography variant="h5">{post.title}</Typography>
+        <Link
+          href={`/posts/${post.slug}`}
+          style={{
+            textDecoration: 'none',
+          }}
+        >
+          <Typography
+            variant="h5"
+            gutterBottom
+            sx={{
+              lineHeight: 1,
+              '&:hover': {
+                opacity: 0.8,
+              },
+            }}
+          >
+            {post.title}
+          </Typography>
         </Link>
         <Stack direction="row" spacing={2} alignItems="center">
           <Avatar>

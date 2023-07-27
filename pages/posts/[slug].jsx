@@ -3,10 +3,10 @@ import client from '../../client';
 import Image from 'next/image';
 import { PortableText } from '@portabletext/react';
 import { groq } from 'next-sanity';
-import { Code } from '@mui/icons-material';
-import { Avatar, Box, Chip, Divider, Stack, Typography } from '@mui/material';
-import { CodeBlock } from 'react-code-blocks';
+import { Avatar, Image as MImage, Chip, Divider, Stack, Typography } from '@mui/material';
 import { formatDistance } from 'date-fns';
+import Highlight from 'react-highlight';
+import '../../node_modules/highlight.js/styles/idea.css';
 
 export function urlFor(source) {
   return ImageUrlBuilder(client).image(source);
@@ -15,20 +15,20 @@ export function urlFor(source) {
 const ptComponents = {
   types: {
     image: ({ value }) => {
-      console.log(value);
-      if (!value?.asset?.ref) return null;
+      if (!value?.asset) return null;
       return (
         <Image
           alt={value.alt || ''}
           loading="lazy"
-          width={320}
+          style={{ objectFit: 'contain' }}
+          width={420}
           height={240}
-          src={urlFor(value).width(320).height(240).fit('max').auto('format')}
+          src={urlFor(value).width(420).fit('max').auto('format').url()}
         />
       );
     },
     code: ({ value: { code, language } }) => {
-      return <CodeBlock customStyle={{ FontFace: 'monospace' }} text={code} language={language} />;
+      return <Highlight className={language}>{code}</Highlight>;
     },
   },
   block: {
@@ -38,9 +38,20 @@ const ptComponents = {
 
 export default function Post({ post }) {
   const { title, author, categories = [], authorImage, body = [] } = post;
+  // console.log(post.body);
   return (
     <article>
-      <Typography variant="h3">{title}</Typography>
+      <Image
+        width={420}
+        height={240}
+        sizes="(max-width: 768px) 100vw"
+        style={{ objectFit: 'contain' }}
+        src={urlFor(post.coverImage).auto('format').url()}
+        alt={post.coverImage?.alt}
+      />
+      <Typography variant="h3" gutterBottom>
+        {title}
+      </Typography>
       <Stack direction="row" spacing={2} alignItems="center">
         <Avatar>
           <Image
@@ -85,6 +96,7 @@ const query = groq`*[_type == "post" && slug.current == $slug][0] {
   title,
   "categories": categories[]->title,
   "slug" : slug.current,
+  "coverImage": mainImage,
   "author": author->{
     name,
     image
