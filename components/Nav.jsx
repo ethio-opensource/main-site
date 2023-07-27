@@ -19,7 +19,9 @@ function Nav() {
     <AppBar position="static" elevation={0} color="transparent">
       <Container>
         <Toolbar sx={{ paddingTop: '25px' }} disableGutters>
-          <Image width={150} height={50} src="/images/logo.png" alt="logo" />
+          <NavLink href="/">
+            <Image width={150} height={50} src="/images/logo.png" alt="logo" />
+          </NavLink>
           <Box sx={{ flexGrow: 1, gap: 1 }} ml={2}>
             <NavLink href="/about">About Us</NavLink>
             <NavLink href="/projects">Projects</NavLink>
