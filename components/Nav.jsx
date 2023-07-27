@@ -32,7 +32,7 @@ function Nav() {
               color="inherit"
               sx={{ marginRight: 1, borderRadius: 20, textTransform: 'capitalize' }}
             >
-              Sign In
+              Join This Community
             </Button>
             <Button
               variant="contained"
