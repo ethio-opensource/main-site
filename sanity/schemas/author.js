@@ -7,6 +7,7 @@ export const author = {
       name: 'name',
       title: 'Name',
       type: 'string',
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'slug',
@@ -16,6 +17,7 @@ export const author = {
         source: 'name',
         maxLength: 96,
       },
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'image',
@@ -31,6 +33,7 @@ export const author = {
           title: 'Alternative Text',
         },
       ],
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'bio',
@@ -44,6 +47,7 @@ export const author = {
           lists: [],
         },
       ],
+      validation: (Rule) => Rule.required(),
     },
   ],
   preview: {

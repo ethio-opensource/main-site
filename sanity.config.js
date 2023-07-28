@@ -15,6 +15,7 @@ import { codeInput } from '@sanity/code-input';
 
 export default defineConfig({
   basePath: '/studio',
+  title: 'Ethio Open Source - Studio',
   projectId,
   dataset,
   // Add and edit the content schema in the './sanity/schema' folder

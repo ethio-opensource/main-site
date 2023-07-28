@@ -7,11 +7,13 @@ export const post = {
       name: 'title',
       title: 'Title',
       type: 'string',
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
+      validation: (Rule) => Rule.required(),
       options: {
         source: 'title',
         maxLength: 96,
@@ -22,6 +24,7 @@ export const post = {
       title: 'Author',
       type: 'reference',
       to: { type: 'author' },
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'mainImage',
@@ -37,6 +40,7 @@ export const post = {
           title: 'Alternative Text',
         },
       ],
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'categories',
@@ -48,11 +52,13 @@ export const post = {
       name: 'publishedAt',
       title: 'Published at',
       type: 'datetime',
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'body',
       title: 'Body',
       type: 'blockContent',
+      validation: (Rule) => Rule.required(),
     },
   ],
 

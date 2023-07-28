@@ -7,6 +7,7 @@ import { formatDistance } from 'date-fns';
 import '../../node_modules/highlight.js/styles/idea.css';
 import { ptComponents, urlFor } from '../../sanity/utils';
 import { Card, CardContent, CardCover, Typography } from '@mui/joy';
+import { getPost } from '../../services/posts';
 
 export default function Post({ post }) {
   const { title, coverImage, author, categories = [], publishedAt, body = [] } = post;
@@ -16,11 +17,11 @@ export default function Post({ post }) {
       <Card sx={{ minHeight: '280px', width: '100%' }}>
         <CardCover>
           <Image
-            src={urlFor(post.coverImage).width(345).url()}
+            src={urlFor(coverImage).width(345).url()}
             height={280}
             width={320}
             loading="lazy"
-            alt={post.title + ' cover image'}
+            alt={title + ' cover image'}
           />
         </CardCover>
         <CardCover
@@ -74,28 +75,12 @@ export async function getStaticPaths() {
   };
 }
 
-const query = groq`*[_type == "post" && slug.current == $slug][0] {
-  "id": _id,
-  title,
-  "categories": categories[]->title,
-  "slug" : slug.current,
-  "coverImage": mainImage,
-  "author": author->{
-    name,
-    image
-  },
-  publishedAt,
-  body
-}
-`;
-
 export async function getStaticProps(context) {
   const { slug = '' } = context.params;
-  const post = await client.fetch(query, { slug });
 
   return {
     props: {
-      post,
+      post: await getPost(slug),
     },
   };
 }

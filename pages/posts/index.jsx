@@ -1,11 +1,13 @@
-import client from '../../client';
-import { Grid } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import { PostCard } from '../../components/PostCard';
+import { getAllPosts } from '../../services/posts';
 
 export default function Posts({ posts }) {
   return (
     <div>
-      <h1>Posts</h1>
+      <Typography variant="h2" gutterBottom>
+        Recent Posts
+      </Typography>
       <Grid container spacing={2}>
         {posts.map((post) => (
           <Grid item xs={12} sm={6} md={4} key={post.id}>
@@ -18,21 +20,7 @@ export default function Posts({ posts }) {
 }
 
 export async function getStaticProps() {
-  const posts = await client.fetch(`
-    *[_type == "post" && publishedAt < now()] | order(publishedAt desc) {
-      "id": _id,
-      title,
-      "slug" : slug.current,
-      publishedAt,
-      "coverImage": mainImage,
-      "author": author->{
-        name,
-        image
-      }
-    }
-  `);
-
   return {
-    props: { posts },
+    props: { posts: await getAllPosts() },
   };
 }
