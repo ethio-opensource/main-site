@@ -1,5 +1,5 @@
 import { Typography, useTheme } from '@mui/material';
-import { tokens } from '../pages/theme';
+import { tokens } from './theme';
 import { CtaButton } from './CtaButton';
 
 export function Hero() {

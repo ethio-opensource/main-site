@@ -1,5 +1,5 @@
 import { Button, useTheme } from '@mui/material';
-import { tokens } from '../pages/theme';
+import { tokens } from './theme';
 
 export function CtaButton({ children, outlined, ...props }) {
   const theme = useTheme();

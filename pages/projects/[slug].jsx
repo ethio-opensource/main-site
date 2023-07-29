@@ -3,14 +3,14 @@ import { Link, Typography } from '@mui/material';
 import Image from 'next/image';
 import { PortableText } from '@portabletext/react';
 import { groq } from 'next-sanity';
-import '../../node_modules/highlight.js/styles/idea.css';
+import 'highlight.js/styles/idea.css';
 import { ptComponents, urlFor } from '../../sanity/utils';
 import { getProject } from '../../services/projects';
 import { ProjectStatus } from '../../components/ProjectStatus';
 
 export default function Project({ project, readme }) {
+  if (!project || !readme) return null
   const { title, cover, status, description, telegramTopic, slideLink, githubLink } = project;
-  console.log(project);
 
   const coverImage = urlFor(cover).url();
 
@@ -72,9 +72,7 @@ export default function Project({ project, readme }) {
         <Typography variant="h3" sx={{ fontSize: '36px', fontWeight: '700', marginY: '20px' }}>
           Readme
         </Typography>
-        <Typography variant="body1" sx={{ fontSize: '16px' }}>
-          {readme}
-        </Typography>
+        <div dangerouslySetInnerHTML={{ __html: readme }}></div>
       </div>
     </div>
   );
@@ -104,8 +102,8 @@ export async function getStaticProps(context) {
 
   return {
     props: {
-      project: await getProject(slug),
-      readme: res.body,
+      project,
+      readme: await res.text(),
     },
   };
 }

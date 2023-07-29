@@ -4,12 +4,13 @@ import { PortableText } from '@portabletext/react';
 import { groq } from 'next-sanity';
 import { Avatar, Chip, Divider, Stack } from '@mui/material';
 import { formatDistance } from 'date-fns';
-import '../../node_modules/highlight.js/styles/idea.css';
+import 'highlight.js/styles/idea.css';
 import { ptComponents, urlFor } from '../../../sanity/utils';
 import { Card, CardContent, CardCover, Typography } from '@mui/joy';
 import { getPost } from '../../../services/posts';
 
 export default function Post({ post }) {
+  if (!post) return null
   const { title, coverImage, author, categories = [], publishedAt, body = [] } = post;
 
   return (
@@ -67,7 +68,7 @@ export default function Post({ post }) {
 
 export async function getStaticPaths() {
   const paths = await client.fetch(
-    groq`*[_type == "post" && defined(slug.current)][].slug.current`
+    groq`*[_type == "post"][].slug.current`
   );
   return {
     paths: paths.map((slug) => ({ params: { slug } })),

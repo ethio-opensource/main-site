@@ -1,7 +1,7 @@
 import { Grid, Typography } from '@mui/material';
 import { PostCard } from '../../components/PostCard';
 import { getAllPosts } from '../../services/posts';
-import ResourcesLayout from '../../components/resourcesLayout';
+import ResourcesLayout from '../../components/ResourcesLayout';
 
 export default function Posts({ posts }) {
   return (

@@ -11,7 +11,6 @@ export const CustomChip = (props) => (
 );
 
 const Projects = ({ projects }) => {
-  console.log(projects);
   const [open, setOpen] = useState(false);
 
   const handleClose = () => setOpen(false);

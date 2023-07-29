@@ -28,6 +28,5 @@ export const getProject = async (slug) => {
   }`,
     { slug }
   );
-  console.log(post, slug);
   return post;
 };

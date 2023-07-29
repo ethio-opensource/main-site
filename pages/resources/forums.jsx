@@ -12,7 +12,7 @@ import { BsSearch } from 'react-icons/bs';
 import { NavLink } from '../../components/Nav';
 import Posts from '../../components/Posts';
 import { posts } from '../../store/posts';
-import ResourcesLayout from '../../components/resourcesLayout';
+import ResourcesLayout from '../../components/ResourcesLayout';
 
 const Forums = () => {
   const post = posts[0];
