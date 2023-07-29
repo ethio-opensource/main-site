@@ -12,7 +12,7 @@ export default function Project({ project, readme }) {
   const { title, cover, status, description, telegramTopic, slideLink, githubLink } = project;
   console.log(project);
 
-  const coverImage = urlFor(cover).width(345).height(345).('').url();
+  const coverImage = urlFor(cover).url();
 
   return (
     <div style={{ display: 'flex', backgroundColor: 'white' }}>
@@ -23,7 +23,7 @@ export default function Project({ project, readme }) {
           width={320}
           loading="lazy"
           alt={title + ' cover image'}
-          style={{ width: '75%', borderRadius: '8px' }}
+          style={{ width: '75%', borderRadius: '8px', objectFit: 'contain' }}
         />
         <div
           style={{
@@ -73,16 +73,7 @@ export default function Project({ project, readme }) {
           Readme
         </Typography>
         <Typography variant="body1" sx={{ fontSize: '16px' }}>
-          https://github.com/ethio-opensource/main-site Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Eos, dignissimos reprehenderit. Rem eius praesentium expedita aliquam,
-          quas est fugit dolores magnam autem non, omnis obcaecati, cumque voluptatum magni
-          dignissimos at. Soluta quod possimus molestiae, deleniti nostrum recusandae temporibus
-          facere ducimus totam. Repudiandae sit possimus dolores nihil corrupti qui, deserunt quasi
-          animi doloremque vitae sequi labore deleniti quos sunt ex excepturi doloribus quo tempora
-          quas maxime veniam voluptatum impedit. Sed doloremque unde maxime, dolores eaque
-          voluptatibus? Ipsam sapiente dolores molestias eligendi saepe molestiae dicta delectus
-          expedita dolorum veritatis ex quae blanditiis, voluptates a nam quibusdam quasi! Officia
-          ducimus obcaecati quod repellat.
+          {readme}
         </Typography>
       </div>
     </div>
@@ -103,13 +94,18 @@ export async function getStaticProps(context) {
   const { slug = '' } = context.params;
   const project = await getProject(slug);
 
-  const res = await fetch(
-    'https://api.github.com/repos/ethio-opensource/main-site/contents/README.md'
-  );
+  const repo = project?.githubLink.match(/\.com\/(.+)\/?$/)[1];
+  const res = await fetch(`https://api.github.com/repos/${repo}/contents/README.md`, {
+    headers: {
+      Accept: 'application/vnd.github.html',
+      'X-GitHub-Api-Version': '2022-11-28',
+    },
+  });
 
   return {
     props: {
       project: await getProject(slug),
+      readme: res.body,
     },
   };
 }
