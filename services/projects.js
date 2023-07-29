@@ -1,16 +1,17 @@
 import { groq } from 'next-sanity';
 import client from '../client';
 
-const projectFragment = groq`
-  *[_type == 'project'] {
-    'id': _id,
-    title,
-    "slug": slug.current
-  }`;
+const projectFragment = `
+  'id': _id,
+  title,
+  "slug": slug.current,
+  cover,
+  status
+`;
 
 export const getAllProjects = async () => {
   const projects = await client.fetch(groq`
-    *[_type == "project" && publishedAt < now() ] | order(publishedAt desc) {
+    *[_type == "project"] | order(_createdAt desc) {
       ${projectFragment}
     }`);
   return projects;
@@ -18,7 +19,7 @@ export const getAllProjects = async () => {
 
 export const getProject = async (slug) => {
   const post = await client.fetch(
-    groq`*[_type == "post" && slug.current == $slug][0] {
+    groq`*[_type == "project" && slug.current == $slug][0] {
       ${projectFragment},
       description,
       telegramTopic,
@@ -27,5 +28,6 @@ export const getProject = async (slug) => {
   }`,
     { slug }
   );
+  console.log(post, slug);
   return post;
 };

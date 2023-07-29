@@ -1,14 +1,16 @@
 import { Add } from '@mui/icons-material';
 import { Chip, Grid, Modal, Pagination, Stack, Typography } from '@mui/material';
 import { useState } from 'react';
-import Filter from '../components/Filter';
-import Project from '../components/Project';
+import Filter from '../../components/Filter';
+import { getAllProjects } from '../../services/projects';
+import ProjectCard from '../../components/ProjectCard';
 
 export const CustomChip = (props) => (
   <Chip sx={{ borderRadius: 2, borderWidth: 0, boxShadow: 1 }} variant="outlined" {...props} />
 );
 
-const Projects = () => {
+const Projects = ({ projects }) => {
+  console.log(projects);
   const [open, setOpen] = useState(false);
 
   const handleClose = () => setOpen(false);
@@ -31,9 +33,9 @@ const Projects = () => {
         <Filter />
       </Modal>
       <Grid container spacing={2}>
-        {new Array(12).fill(0).map((_, idx) => (
-          <Grid item xs={12} sm={6} md={4} key={idx}>
-            <Project key={idx} />
+        {projects.map((project) => (
+          <Grid item xs={12} sm={6} md={4} key={project.id}>
+            <ProjectCard project={project} />
           </Grid>
         ))}
       </Grid>
@@ -43,3 +45,9 @@ const Projects = () => {
 };
 
 export default Projects;
+
+export async function getStaticProps() {
+  return {
+    props: { projects: await getAllProjects() },
+  };
+}

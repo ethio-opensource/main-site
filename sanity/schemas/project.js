@@ -2,6 +2,9 @@ export const project = {
   name: 'project',
   type: 'document',
   title: 'Project',
+  initialValue: {
+    status: 'ongoing',
+  },
   fields: [
     {
       name: 'title',
@@ -65,7 +68,7 @@ export const project = {
       type: 'string',
       validation: (Rule) => Rule.required(),
       options: {
-        list: [{ value: 'ongoing', checked: true }, { value: 'deployed' }, { value: 'archived' }],
+        list: ['ongoing', 'deployed', 'archived'],
         layout: 'radio',
       },
     },
