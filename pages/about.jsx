@@ -30,6 +30,7 @@ const AboutPage = () => {
         This community is intended for those who want to contribute to open-source projects or start new ones. Members of this community are typically Developers, Programmers, Software Engineers, and Designers with a technical background. Use this group to share ideas and seek collaborators for new projects, as well as to discuss ongoing projects and their progress. This community is open and inclusive, welcoming members of all skill levels and backgrounds. Members of this community are encouraged to share their expertise, contribute to existing projects, initiate new ones, seek advice or feedback on their work, and discuss new ideas.
       </Typography>
       <Typography
+      id="join"
         variant="h5"
         sx={{
           fontWeight: 'bold',
@@ -48,6 +49,7 @@ const AboutPage = () => {
         Joining the <Link href='https://t.me/ethio_open_source_community/1'>Telegram Group</Link> is the first step, then post your email under the General topic mentioning one of the admins. You will receive an invitation email to the GitHub community.
       </Typography>
       <Typography
+      id="contribute"
         variant="h5"
         sx={{
           fontWeight: 'bold',
@@ -66,6 +68,7 @@ const AboutPage = () => {
         To start contributing to any of the existing projects, just jump into the topic of the project you want and ask to contribute.
       </Typography>
       <Typography
+      id="start"
         variant="h5"
         sx={{
           fontWeight: 'bold',

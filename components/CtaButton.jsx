@@ -1,7 +1,7 @@
 import { Button, useTheme } from '@mui/material';
 import { tokens } from '../pages/theme';
 
-export function CtaButton({ children, outlined }) {
+export function CtaButton({ children, outlined, ...props }) {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const style = outlined
@@ -15,6 +15,7 @@ export function CtaButton({ children, outlined }) {
       };
   return (
     <Button
+      {...props}
       variant={outlined ? 'outlined' : 'contained'}
       color="inherit"
       sx={{

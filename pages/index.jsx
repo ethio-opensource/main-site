@@ -1,17 +1,20 @@
-import { Typography, Button, Stack, Container, } from '@mui/material';
+import { Typography, Button, Stack, Container } from '@mui/material';
 import { Hero } from '../components/Hero';
 import { Partners } from '../components/Partners';
 import GetStartedCard from '../components/GetStartedCard';
 import FeaturedFeedbacks from '../components/FeaturedFeedbacks';
 import FeaturedProjects from '../components/FeaturedProjects';
 import Subscribe from '../components/Subscribe';
+import { ProjectList } from '../components/ProjectsList';
+import { getAllProjects } from '../services/projects';
 
-const HomePage = () => {
-
+const HomePage = ({ projects }) => {
   const GeStTi1 = 'Start a new open source project';
-  const GeStDe1 = 'Enable your project to thrive in a neutral, trusted home, where we’ll help you scale your community with unmatched expertise, tools, and services.';
+  const GeStDe1 =
+    'Enable your project to thrive in a neutral, trusted home, where we’ll help you scale your community with unmatched expertise, tools, and services.';
   const GeStTi2 = 'Become a Member';
-  const GeStDe2 = 'Supercharge the future of open technology. Shape the ecosystem, drive collaboration, and measure your contributions.';
+  const GeStDe2 =
+    'Supercharge the future of open technology. Shape the ecosystem, drive collaboration, and measure your contributions.';
 
   return (
     <Container
@@ -43,8 +46,8 @@ const HomePage = () => {
         </div>
 
         <Stack direction="row">
-          <GetStartedCard title={GeStTi1} description={GeStDe1} />
-          <GetStartedCard title={GeStTi2} description={GeStDe2} />
+          <GetStartedCard title={GeStTi1} href="/about#start" description={GeStDe1} />
+          <GetStartedCard title={GeStTi2} href="/about#join" description={GeStDe2} />
         </Stack>
       </div>
       <div
@@ -73,10 +76,11 @@ const HomePage = () => {
           </Typography>
         </div>
         <div style={{ display: 'flex', gap: '2rem' }}>
-          {/* <FeaturedProjects/> */}
+          <ProjectList projects={projects} />
         </div>
         <div>
           <Button
+            href="/projects"
             variant="contained"
             sx={{
               backgroundColor: 'blue',
@@ -90,10 +94,16 @@ const HomePage = () => {
           </Button>
         </div>
       </div>
-      <FeaturedFeedbacks />
-      <Subscribe/>
+      <FeaturedFeedbacks projects={projects} />
+      <Subscribe />
     </Container>
   );
 };
 
 export default HomePage;
+
+export async function getStaticProps() {
+  return {
+    props: { projects: await getAllProjects() },
+  };
+}

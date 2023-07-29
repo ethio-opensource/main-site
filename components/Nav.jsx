@@ -6,9 +6,9 @@ import Image from 'next/image';
 // eslint-disable-next-line react/display-name
 const LinkBehavoir = forwardRef((props, ref) => <NextLink ref={ref} {...props} />);
 
-export const NavLink = ({ children, href }) => {
+export const NavLink = ({ children, href, }) => {
   return (
-    <Link underline="hover" mx={1} component={LinkBehavoir} href={href}>
+  <Link underline="hover" mx={1} component={LinkBehavoir} href={href}>
       {children}
     </Link>
   );
@@ -26,12 +26,11 @@ function Nav() {
             <NavLink href="/about">About Us</NavLink>
             <NavLink href="/projects">Projects</NavLink>
             <NavLink href="/resources">Resources</NavLink>
-            <NavLink href="/posts">Blog</NavLink>
             <NavLink href="/contact">Contact Us</NavLink>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Button
+            <Button href='/about/#join'
               color="inherit"
               sx={{ marginRight: 1, borderRadius: 20, textTransform: 'capitalize' }}
             >

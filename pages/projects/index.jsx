@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Filter from '../../components/Filter';
 import { getAllProjects } from '../../services/projects';
 import ProjectCard from '../../components/ProjectCard';
+import { ProjectList } from '../../components/ProjectsList';
 
 export const CustomChip = (props) => (
   <Chip sx={{ borderRadius: 2, borderWidth: 0, boxShadow: 1 }} variant="outlined" {...props} />
@@ -18,7 +19,7 @@ const Projects = ({ projects }) => {
 
   return (
     <Stack spacing={2}>
-      <Typography variant="h3">Explore Our Project</Typography>
+      <Typography variant="h4">Explore Our Projects</Typography>
       <Stack direction="row" spacing={2}>
         <CustomChip label="React.js" />
         <CustomChip label="Node.js" />
@@ -32,13 +33,7 @@ const Projects = ({ projects }) => {
       >
         <Filter />
       </Modal>
-      <Grid container spacing={2}>
-        {projects.map((project) => (
-          <Grid item xs={12} sm={6} md={4} key={project.id}>
-            <ProjectCard project={project} />
-          </Grid>
-        ))}
-      </Grid>
+<ProjectList projects={projects}/>
       <Pagination count={3} />
     </Stack>
   );

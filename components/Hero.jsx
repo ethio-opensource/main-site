@@ -23,7 +23,7 @@ export function Hero() {
       <Typography sx={{marginBottom: '10px'}} variant="h6">making difference in Ethiopia and beyond</Typography>
       <div style={{ display: 'flex', flexDirection: 'row', margin: '20px' }}>
         <CtaButton>Support Us</CtaButton>
-        <CtaButton outlined>Contribute</CtaButton>
+        <CtaButton outlined href='/about/#contribute'>Contribute</CtaButton>
       </div>
     </>
   );

@@ -4,7 +4,7 @@ import { Typography } from '@mui/material';
 import Link from 'next/link';
 import Image from 'next/image';
 
-function GetStartedCard({ title, description }) {
+function GetStartedCard({ title, description, href }) {
 
   return (
     <div
@@ -28,7 +28,7 @@ function GetStartedCard({ title, description }) {
           </Typography>
         </div>
         <div>
-          <Link href="/" style={{ textDecoration: 'none' }}>
+          <Link href={href} style={{ textDecoration: 'none' }}>
             <Typography
               variant="h5"
               style={{

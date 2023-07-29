@@ -1,13 +1,13 @@
-import client from '../../client';
+import client from '../../../client';
 import Image from 'next/image';
 import { PortableText } from '@portabletext/react';
 import { groq } from 'next-sanity';
 import { Avatar, Chip, Divider, Stack } from '@mui/material';
 import { formatDistance } from 'date-fns';
 import '../../node_modules/highlight.js/styles/idea.css';
-import { ptComponents, urlFor } from '../../sanity/utils';
+import { ptComponents, urlFor } from '../../../sanity/utils';
 import { Card, CardContent, CardCover, Typography } from '@mui/joy';
-import { getPost } from '../../services/posts';
+import { getPost } from '../../../services/posts';
 
 export default function Post({ post }) {
   const { title, coverImage, author, categories = [], publishedAt, body = [] } = post;
