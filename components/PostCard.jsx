@@ -9,7 +9,7 @@ import { CustomCard } from './CustomCard';
 export const PostCard = ({ post }) => {
   return (
     <CustomCard image={urlFor(post.coverImage).width(345).url()} title={post.title}>
-      <NavLink href={`/posts/${post.slug}`}>
+      <NavLink href={`/resources/posts/${post.slug}`}>
         <Typography level="h2" fontSize="lg" textColor="#fff" mb={1}>
           {post.title}
         </Typography>
