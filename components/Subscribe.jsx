@@ -1,28 +1,82 @@
-import React from 'react';
-import { Input, Button, Container, Box, Typography } from '@mui/material';
+import React, { useState } from 'react';
+import { Container, Box, Typography, Stack, Snackbar, Alert } from '@mui/material';
+import { Button, Input } from '@mui/joy';
+import { EmailOutlined } from '@mui/icons-material';
 
 function Subscribe() {
+  const [loading, setLoading] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [error, setError] = useState();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        body: JSON.stringify({ email: e.target.email.value }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      await res.json();
+      e.target.email.value = '';
+      setOpen(true);
+    } catch (err) {
+      console.log(err);
+      setError(err.message);
+    }
+    setLoading(false);
+  };
+
+  const handleClose = (e, reason) => {
+    if (reason === 'clickaway') return;
+    setOpen(false);
+  };
+
   return (
-    <Container
-      sx={{
-        marginY: '20px',
-      }}
-    >
-      <Typography
-        variant="h6"
+    <Container sx={{ marginY: '20px' }}>
+      <Box
         sx={{
-          fontWeight: 'bold',
-          marginY: '1rem',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          py: 6,
         }}
       >
-        Stay connected with this vibrant community
-      </Typography>
-      <Box>
-        <Input variant="outlined" color='primary' placeholder="mail@mui.com" type="email" required />
-        <Button variant="solid" color="primary" type="submit">
-          Subscribe
-        </Button>
+        <Typography textAlign="center" variant="h4" gutterBottom>
+          Stay connected.
+          <br /> Subscribe to Our Newsletter.
+        </Typography>
+        <form onSubmit={handleSubmit}>
+          <Stack spacing={1} direction={'row'}>
+            <Input
+              variant="soft"
+              startDecorator={<EmailOutlined color="inherit" />}
+              placeholder="example@ethos.com"
+              type="email"
+              name="email"
+              disabled={loading}
+              required
+            />
+            <Button variant="solid" loading={loading} type="submit">
+              Subscribe
+            </Button>
+          </Stack>
+        </form>
       </Box>
+      <Snackbar open={open} autoHideDuration={4000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success">
+          Successfully subscribed to Email Newsletter!
+        </Alert>
+      </Snackbar>
+      <Snackbar open={!!error} autoHideDuration={4000} onClose={() => setError(undefined)}>
+        <Alert onClose={() => setError(undefined)} severity="error">
+          {error}
+        </Alert>
+      </Snackbar>
     </Container>
   );
 }
