@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { Typography, Box, Container, Divider, Stack, Link } from '@mui/material';
-import { FaFacebookF, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
+import { FaFacebookF, FaFacebookSquare, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
 
 function contact() {
   return (
@@ -24,60 +24,82 @@ function contact() {
             margin: '10px',
           }}
         >
-            <Container>
-              <Typography variant="h5" color="initial" mb={1}>
-                Email
-              </Typography>
-              <Typography variant="body1" color="initial">
+          <Container>
+            <Typography variant="h5" color="initial" mb={1}>
+              Email
+            </Typography>
+            <Typography variant="body1" color="initial">
+              <a target="_blank" href="mailto:contact@eos.tech">
                 contact@eos.tech
-              </Typography>
-              <Typography variant="body1" color="initial">
+              </a>
+            </Typography>
+            <Typography variant="body1" color="initial">
+              <a target="_blank" href="mailto:eos@gmail.com">
                 eos@gmail.com
-              </Typography>
-              <Typography variant="body1" color="initial">
+              </a>
+            </Typography>
+            <Typography variant="body1" color="initial">
+              <a target="_blank" href="mailto:eos@outlook.com">
                 eos@outlook.com
-              </Typography>
-            </Container>
-        <Divider orientation="vertical" flexItem />
-            <Container>
-              <Typography variant="h5" color="initial" mb={1}>
-                Phone
-              </Typography>
-              <Typography variant="body1" color="initial">
+              </a>
+            </Typography>
+          </Container>
+          <Divider orientation="vertical" flexItem />
+          <Container>
+            <Typography variant="h5" color="initial" mb={1}>
+              Phone
+            </Typography>
+            <Typography variant="body1" color="initial">
+              <a target="_blank" href="tel:+251912687901">
                 +251912687901
-              </Typography>
-              <Typography variant="body1" color="initial">
+              </a>
+            </Typography>
+            <Typography variant="body1" color="initial">
+              <a target="_blank" href="tel:+251972586160">
                 +251972586160
-              </Typography>
-              <Typography variant="body1" color="initial">
+              </a>
+            </Typography>
+            <Typography variant="body1" color="initial">
+              <a target="_blank" href="tel:+251936731722">
                 +251936731722
-              </Typography>
-              <Typography variant="body1" color="initial">
+              </a>
+            </Typography>
+            <Typography variant="body1" color="initial">
+              <a target="_blank" href="tel:+251910168641">
                 +251910168641
-              </Typography>
-            </Container>
-        <Divider orientation="vertical" flexItem />
-            <Stack>
-            <Container sx={{
+              </a>
+            </Typography>
+          </Container>
+          <Divider orientation="vertical" flexItem />
+          <Stack>
+            <Container
+              sx={{
                 marginY: '10px',
-            }}><Link href="facebook.com/eos">
-              <FaLinkedinIn size={25} />
-            </Link></Container>
-            <Container sx={{
-                marginY: '10px',
-            }}>
-            <Link href="facebook.com/eos">
-              <FaTwitter size={25}/>
-            </Link>
+              }}
+            >
+              <a href="https://facebook.com/eos">
+                <FaLinkedinIn color="#0A66C2" size={25} />
+              </a>
             </Container>
-            <Container sx={{
+            <Container
+              sx={{
                 marginY: '10px',
-            }}>
-            <Link href="facebook.com/eos">
-              <FaFacebookF size={25}/>
-            </Link>
+              }}
+            >
+              <a href="https://facebook.com/eos">
+                <FaTwitter color="#00acee" size={25} />
+              </a>
             </Container>
-            </Stack>
+            <Container
+              sx={{
+                marginY: '10px',
+              }}
+            >
+              <a href="https://facebook.com/eos">
+                <FaFacebookSquare color="#1877F2" size={25} />
+              </a>
+            </Container>
+          </Stack>
         </Container>
       </Box>
     </Container>
