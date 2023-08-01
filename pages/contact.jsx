@@ -95,7 +95,7 @@ function contact() {
                 marginY: '10px',
               }}
             >
-              <a href="https://facebook.com/eos">
+              <a href="https://www.facebook.com/profile.php?id=100095163141362">
                 <FaFacebookSquare color="#1877F2" size={25} />
               </a>
             </Container>
