@@ -1,4 +1,4 @@
-import { Typography, Button, Stack, Container } from '@mui/material';
+import { Typography, Button, Stack, Container, Box } from '@mui/material';
 import { Hero } from '../components/Hero';
 import { Partners } from '../components/Partners';
 import GetStartedCard from '../components/GetStartedCard';
@@ -17,12 +17,16 @@ const HomePage = ({ projects }) => {
     'Supercharge the future of open technology. Shape the ecosystem, drive collaboration, and measure your contributions.';
 
   return (
-    <Container
+    <Box
       sx={{
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
+        //overflowX: 'hidden',
+        width: '100%',
+        padding: 0,
+        margin: 0,
       }}
     >
       <Hero />
@@ -32,20 +36,34 @@ const HomePage = ({ projects }) => {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          justifyContent: 'space-between',
+          //justifyContent: 'space-between',
           background: 'linear-gradient(to right bottom, #430123, #430089)',
-          flexWrap: 'wrap',
           width: '100%',
-          borderRadius: '20px',
+          //height: '120vh',
+
+          //borderRadius: '20px',
         }}
       >
         <div style={{ margin: '2rem' }}>
-          <Typography variant="h4" sx={{ color: 'white' }}>
+          <Typography
+            variant="h4"
+            sx={{
+              color: '#FFF',
+              textAlign: 'center',
+              //fontFamily: 'Lexend',
+              fontSize: '40px',
+              fontStyle: 'normal',
+              fontWeight: 400,
+              lineHeight: '56px' /* 116.667% */,
+              letterSpacing: '-1.2px',
+              my: '80px',
+            }}
+          >
             Get Started
           </Typography>
         </div>
 
-        <Stack direction="row">
+        <Stack direction="row" sx={{ gap: 10, pb: 10 }}>
           <GetStartedCard title={GeStTi1} href="/about#start" description={GeStDe1} />
           <GetStartedCard title={GeStTi2} href="/about#join" description={GeStDe2} />
         </Stack>
@@ -53,7 +71,7 @@ const HomePage = ({ projects }) => {
       <div
         style={{
           display: 'flex',
-          height: '80vh',
+          height: '100vh',
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'space-around',
@@ -70,8 +88,10 @@ const HomePage = ({ projects }) => {
             gap: '1rem',
           }}
         >
-          <Typography variant="h5">Explore Our Projects</Typography>
-          <Typography variant="h6" sx={{ marginBottom: '2rem' }}>
+          <Typography variant="h5" sx={{ fontSize: '40px', color: '#0F172A' }}>
+            Explore Our Projects
+          </Typography>
+          <Typography variant="h6" sx={{ marginBottom: '2rem', color: '#334155', fontWeight: 300 }}>
             Explore the latest projects created by our community
           </Typography>
         </div>
@@ -83,7 +103,6 @@ const HomePage = ({ projects }) => {
             href="/projects"
             variant="contained"
             sx={{
-              backgroundColor: 'blue',
               textTransform: 'capitalize',
               borderRadius: 20,
               padding: '5px 20px',
@@ -96,7 +115,7 @@ const HomePage = ({ projects }) => {
       </div>
       <FeaturedFeedbacks projects={projects} />
       <Subscribe />
-    </Container>
+    </Box>
   );
 };
 

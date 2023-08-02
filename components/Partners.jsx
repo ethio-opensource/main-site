@@ -5,9 +5,13 @@ import { BsPlusCircle } from 'react-icons/bs';
 
 export function Partners() {
   return (
-    <Box sx={{ width: '100%', my: 4 }}>
-      <Typography variant="h4" textAlign="center">
-        Trusted by
+    <Box sx={{ width: '100%', my: 10, px: '320px' }}>
+      <Typography
+        sx={{ marginTop: '10px', fontSize: '16px', color: '#0F172A', fontWeight: '400' }}
+        variant="h6"
+        textAlign="center"
+      >
+        Trusted by these companies so far
       </Typography>
       <Box
         display="flex"
