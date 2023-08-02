@@ -8,7 +8,11 @@ const LinkBehavoir = forwardRef((props, ref) => <NextLink ref={ref} {...props} /
 
 export const NavLink = ({ children, href }) => {
   return (
+<<<<<<< HEAD
     <Link underline="hover" mx={1} component={LinkBehavoir} href={href}>
+=======
+  <Link underline="none" mx={1} component={LinkBehavoir} href={href}>
+>>>>>>> 349377d07ed5ffcef25eed7e6cefad584e23bcad
       {children}
     </Link>
   );
