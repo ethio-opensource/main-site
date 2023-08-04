@@ -4,17 +4,18 @@ import TweetEmbed from 'react-tweet-embed';
 
 function FeaturedFeedbacks() {
   return (
-    <Container
+    <Box
       style={{
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
         // background: colors.neutral[700],
-        background: 'linear-gradient(to right bottom, #430089, #82ffa1)',
-        width: '100%',
+        background: '#0F172A',
+        width: '100vw',
+        height: '100vh',
         gap: '4rem',
-        borderRadius: '20px',
+        //borderRadius: '20px',
       }}
     >
       <div
@@ -27,16 +28,16 @@ function FeaturedFeedbacks() {
           marginTop: '4rem',
         }}
       >
-        <Typography variant="h3" style={{ color: 'white' }}>
+        <Typography variant="h3" style={{ color: 'white', fontSize: '40px' }}>
           What Our Community Members Say
         </Typography>
-        <Typography variant="h5" style={{ color: 'white', marginTop: '20px' }}>
+        <Typography variant="h5" style={{ color: '#94A3B8', marginTop: '20px', fontSize: '18px' }}>
           Our community is made up of developers, designers, and tech enthusiasts
         </Typography>
-        <Typography variant="h5" style={{ color: 'white' }}>
+        <Typography variant="h5" style={{ color: '#94A3B8', fontSize: '18px' }}>
           from all over Ethiopia who share a passion for open technology and
         </Typography>
-        <Typography variant="h5" style={{ color: 'white' }}>
+        <Typography variant="h5" style={{ color: '#94A3B8', fontSize: '18px' }}>
           collaborative problem-solving.
         </Typography>
       </div>
@@ -69,7 +70,7 @@ function FeaturedFeedbacks() {
           <TweetEmbed tweetId="1683213798386147329" />
         </Box>
       </Stack>
-    </Container>
+    </Box>
   );
 }
 

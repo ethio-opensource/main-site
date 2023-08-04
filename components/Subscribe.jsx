@@ -36,17 +36,21 @@ function Subscribe() {
   };
 
   return (
-    <Container sx={{ marginY: '20px' }}>
+    <Container sx={{ marginY: '80px' }}>
       <Box
         sx={{
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          py: 6,
+          gap: 10,
         }}
       >
-        <Typography textAlign="center" variant="h4" gutterBottom>
+        <Typography
+          variant="h3"
+          style={{ fontSize: '40px', color: '#0F172A', mb: 10 }}
+          textAlign="center"
+        >
           Stay connected.
           <br /> Subscribe to Our Newsletter.
         </Typography>
